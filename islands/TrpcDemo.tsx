@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
 import { useState } from "preact/hooks";
 
 import { Button } from "../components/Button.tsx";
@@ -7,14 +5,14 @@ import { trpc } from "../utils/trpc.ts";
 
 export default function Counter() {
   const [helloResponse, setHelloResponse] = useState('');
-  const [posts, setPosts] = useState<{name: string}[]>([]);
+  const [posts, setPosts] = useState<{ name: string }[]>([]);
 
-  const fetchPosts = () => trpc.query("post.get").then(setPosts)
+  const fetchPosts = () => trpc.postGet.query().then(setPosts);
 
   return (
     <div>
       <Button onClick={() => {
-        trpc.query("hello").then(setHelloResponse)
+        trpc.hello.query().then(setHelloResponse);
       }}>Hello</Button>
 
       {helloResponse}
@@ -22,7 +20,7 @@ export default function Counter() {
       <hr />
 
       <Button onClick={() => {
-        trpc.mutation("post.create", {name: `Random post ${Math.random()}`}).then(fetchPosts)
+        trpc.postCreate.mutate({ name: `Random post ${Math.random()}` }).then(fetchPosts);
       }}>Create Random Post</Button>
 
       <hr />
@@ -34,6 +32,5 @@ export default function Counter() {
       </ul>
 
     </div>
-    
   );
 }

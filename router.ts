@@ -1,24 +1,21 @@
-import { router } from "@trpc/server";
+import { initTRPC } from "@trpc/server";
 import { z } from "zod";
 
 const posts = [{ name: "first post" }];
 
-export const appRouter = router().query("hello", {
-  resolve() {
-    return "world";
-  },
-}).query("post.get", {
-  resolve() {
-    return posts;
-  },
-}).mutation("post.create", {
-  input: z.object({
+const t = initTRPC.create();
+const router = t.router;
+const publicProcedure = t.procedure;
+
+export const appRouter = router({
+  hello: publicProcedure.query(() => "world"),
+  postGet: publicProcedure.query(() => posts),
+  postCreate: publicProcedure.input(z.object({
     name: z.string(),
+  })).mutation<{name: string}>((req) => {
+    posts.push(req.input);
+    return req.input;
   }),
-  resolve({ input }) {
-    posts.push(input);
-    return input;
-  },
 });
 
 export type AppRouter = typeof appRouter;

@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
 import TrpcDemo from "../islands/TrpcDemo.tsx";
 
 export default function Home() {

@@ -1,14 +1,16 @@
 {
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.0.2/",
-    "preact": "https://esm.sh/preact@10.10.0",
-    "preact/": "https://esm.sh/preact@10.10.0/",
-    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.1?external=preact",
+    "$fresh/": "https://deno.land/x/fresh@1.1.2/",
+    "preact": "https://esm.sh/preact@10.11.0",
+    "preact/": "https://esm.sh/preact@10.11.0/",
+    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.4?external=preact",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
 
-    "@trpc/server": "https://esm.sh/v89/@trpc/server@10.0.0-alpha.22",
-    "@trpc/server/": "https://esm.sh/v89/@trpc/server@10.0.0-alpha.22/",
-    "@trpc/client": "https://esm.sh/v89/@trpc/client@10.0.0-alpha.22?deps=@trpc/server@10.0.0-alpha.22",
+    "@trpc/server": "https://esm.sh/v89/@trpc/server@10.9.0",
+    "@trpc/server/": "https://esm.sh/v89/@trpc/server@10.9.0/",
+    "@trpc/client": "https://esm.sh/v89/@trpc/client@10.9.0?deps=@trpc/server@10.9.0",
 
-    "zod": "https://deno.land/x/zod@v3.16.1/mod.ts"
+    "zod": "https://deno.land/x/zod@v3.20.2/mod.ts"
   }
 }
