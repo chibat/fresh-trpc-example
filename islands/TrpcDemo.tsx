@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 
 import { Button } from "../components/Button.tsx";
-import { trpc } from "../utils/trpc.ts";
+import { trpc } from "../trpc/client.ts";
 
 export default function Counter() {
   const [helloResponse, setHelloResponse] = useState('');

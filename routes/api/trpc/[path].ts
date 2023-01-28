@@ -1,6 +1,7 @@
 import { HandlerContext } from "$fresh/server.ts";
-import { appRouter } from "../../../router.ts";
+import { appRouter } from "../../../trpc/router.ts";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
+import { createContext } from "../../../trpc/context.ts";
 
 export const handler = async (
   req: Request,
@@ -10,6 +11,7 @@ export const handler = async (
     endpoint: "/api/trpc",
     req,
     router: appRouter,
+    createContext,
   });
 
   return new Response(trpcRes.body, {
